@@ -111,14 +111,14 @@ exports.router.get("/", verifyToken_1.verify, (req, res) => __awaiter(void 0, vo
         if (typeQuery) {
             if (genreQuery) {
                 list = yield List_model_1.default.aggregate([
-                    { $sample: { size: 10 } },
                     { $match: { type: typeQuery, genre: genreQuery } },
+                    { $sample: { size: 10 } },
                 ]);
             }
             else {
                 list = yield List_model_1.default.aggregate([
-                    { $sample: { size: 10 } },
                     { $match: { type: typeQuery } },
+                    { $sample: { size: 10 } },
                 ]);
             }
         }
