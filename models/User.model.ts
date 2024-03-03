@@ -13,7 +13,8 @@ export interface UserOutput extends UserInput {
   createdAt: Date;
   updatedAt: Date;
   __v: number;
-};
+  accessToken: string;
+}
 
 const UserSchema = new mongoose.Schema(
   {

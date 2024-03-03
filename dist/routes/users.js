@@ -87,7 +87,7 @@ exports.router.get("/", verifyToken_1.verify, (req, res) => __awaiter(void 0, vo
     if (req.user.isAdmin) {
         try {
             const users = query
-                ? yield User_model_1.default.find().sort({ _id: -1 }).limit(2)
+                ? yield User_model_1.default.find().sort({ _id: -1 }).limit(5)
                 : yield User_model_1.default.find();
             res.status(200).json(users);
         }
@@ -104,20 +104,20 @@ exports.router.get("/stats", (req, res) => __awaiter(void 0, void 0, void 0, fun
     const today = new Date();
     const lastYear = new Date(today);
     lastYear.setFullYear(today.getFullYear() - 1);
-    const monthsArray = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-    ];
+    // const monthsArray = [
+    //   "January",
+    //   "February",
+    //   "March",
+    //   "April",
+    //   "May",
+    //   "June",
+    //   "July",
+    //   "August",
+    //   "September",
+    //   "October",
+    //   "November",
+    //   "December",
+    // ];
     try {
         const data = yield User_model_1.default.aggregate([
             {
