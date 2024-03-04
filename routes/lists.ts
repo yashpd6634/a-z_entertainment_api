@@ -43,19 +43,19 @@ router.post("/", verify, async (req: any, res) => {
 //   }
 // });
 
-// //DELETE
-// router.delete("/:id", verify, async (req: any, res) => {
-//   if (req.user.isAdmin) {
-//     try {
-//       await List.findByIdAndDelete(req.params.id);
-//       res.status(201).json("List has been deleted");
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   } else {
-//     res.status(403).json("You are not allowed to delete");
-//   }
-// });
+//DELETE
+router.delete("/:id", verify, async (req: any, res) => {
+  if (req.user.isAdmin) {
+    try {
+      await List.findByIdAndDelete(req.params.id);
+      res.status(201).json("List has been deleted");
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  } else {
+    res.status(403).json("You are not allowed to delete");
+  }
+});
 
 // //GET RANDOM
 // router.get("/random", async (req: any, res) => {
