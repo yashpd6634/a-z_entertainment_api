@@ -5,6 +5,7 @@ import { router as authRoutes } from "./routes/auth";
 import { router as userRoutes } from "./routes/users";
 import { router as videoRoutes } from "./routes/videos";
 import { router as listsRoutes } from "./routes/lists";
+import cors from 'cors';
 
 const app = express();
 const port = 8000;
@@ -18,6 +19,7 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
